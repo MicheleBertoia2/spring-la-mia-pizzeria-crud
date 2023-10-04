@@ -15,16 +15,24 @@ public class Pizza {
 	
 	private String name;
 	private double price;
+	private String image;
 	private String ingredients;
 	
 	public Pizza() {}
-	public Pizza(String name, double price, String ingredients)
+	public Pizza(String name, double price, String image, String ingredients)
 	{
 		setName(name);
 		setPrice(price);
+		setImage(image);
 		setIngredients(ingredients);
 	}
 	
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	public int getId() {
 		return id;
 	}

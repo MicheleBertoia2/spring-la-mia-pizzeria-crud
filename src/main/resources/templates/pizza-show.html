@@ -4,20 +4,15 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
-	<h1>Lista pizze</h1>
-	<ul>
-		<li
-			th:each="pizza : ${pizze}"
-			th:object="${pizza}"
-		>
+<body th:object="${pizza}">
+	<h1>Dettaglio pizza [[*{name}]]</h1>
+	
 			<h3>[[*{name}]]</h3>
-			<h4>[[*{price}]] euro</h4>
-			<h5>[[*{ingredients}]]</h5>
-			<a > DETTAGLIO </a>
+			<img th:src="@{${pizza.image}}">
+			<h4> <span th:text="${#numbers.formatDecimal(pizza.price, 0, 'POINT', 2, 'COMMA')}"></span> euro</h4>
+			<h5>[[*{ingredients}]]</h5>		
 			
-		</li>
-	</ul>
+		
 
 </body>
 </html>
