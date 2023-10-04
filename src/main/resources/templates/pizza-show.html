@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Lista pizze</h1>
+	<ul>
+		<li
+			th:each="pizza : ${pizze}"
+			th:object="${pizza}"
+		>
+			<h3>[[*{name}]]</h3>
+			<h4>[[*{price}]] euro</h4>
+			<h5>[[*{ingredients}]]</h5>
+			<a > DETTAGLIO </a>
+			
+		</li>
+	</ul>
+
+</body>
+</html>
