@@ -11,6 +11,11 @@
 	
 	<div th:if="${#lists.size(pizze) > 0}">
 		<h1>Lista pizze</h1>
+		<form>
+			<label for="name">Cerca una pizza</label>
+			<input type="text" name="name" th:value="${name}">
+			<input type="submit" value="Cerca">
+		</form>
 		<ul>
 			<li
 				th:each="pizza : ${pizze}"
