@@ -16,6 +16,9 @@
 			<input type="text" name="name" th:value="${name}">
 			<input type="submit" value="Cerca">
 		</form>
+		<div>
+			<h3><a th:href="@{/create}">Aggiungi una pizza</a></h3>
+		</div>
 		<ul>
 			<li
 				th:each="pizza : ${pizze}"
