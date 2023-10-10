@@ -39,7 +39,7 @@ public class PizzaController {
 		return "pizza-index";
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/pizze/{id}")
 	public String show(Model model, @PathVariable int id)
 	{
 		Pizza pizza = pizzaService.findById(id);
@@ -73,4 +73,36 @@ public class PizzaController {
 		return "redirect:/";
 	}
 	
+	@GetMapping("/edit/{id}")
+	public String editForm(@PathVariable int id, Model model)
+	{
+		Pizza pizza = pizzaService.findById(id);
+		model.addAttribute("pizza", pizza);
+		return "pizza-update";
+	}
+	
+	@PostMapping("/edit/{id}")
+	public String updatePizza(
+			@Valid @ModelAttribute Pizza pizza,
+			BindingResult br,
+			Model model)
+	{
+		if(br.hasErrors())
+		{
+			br.getAllErrors().forEach(System.out::println);
+			return "pizza-update";
+		}
+		
+		pizzaService.save(pizza);
+		
+		return "redirect:/";
+	}
+	
+	@PostMapping("/delete/{id}")
+	public String delete(@PathVariable int id)
+	{
+		Pizza pizza = pizzaService.findById(id);
+		pizzaService.deletePizza(pizza);
+		return "redirect:/";
+	}
 }

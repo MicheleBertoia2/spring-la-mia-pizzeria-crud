@@ -29,6 +29,13 @@
 				<h4> <span th:text="${#numbers.formatDecimal(pizza.price, 0, 'POINT', 2, 'COMMA')}"></span> euro</h4>
 				<h5>[[*{ingredients}]]</h5>
 				<a th:href="@{/pizze/{id}(id=*{id})}"> DETTAGLIO </a>
+				<a th:href="@{/edit/{id}(id=*{id})}"> MODIFICA </a>
+				<form
+					th:action="@{/delete/{id}(id=*{id})}"
+					method="POST"
+				>
+					<input type="submit" value="ELIMINA">
+				</form>
 				
 			</li>
 		</ul>
